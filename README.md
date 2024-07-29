@@ -32,5 +32,3 @@ This is the backend server for a blog application built with Express, TypeScript
 #### Comments
 - `POST /posts/:id/comment/new`: Add a comment to a post (requires token)
 
-## License
-This project is licensed under the ISC License.
