@@ -32,3 +32,6 @@ This is the backend server for a blog application built with Express, TypeScript
 #### Comments
 - `POST /posts/:id/comment/new`: Add a comment to a post (requires token)
 
+## API URL
+The API is accessible at: [https://project-blog-api-server.glitch.me](https://project-blog-api-server.glitch.me)
+
