@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const client_1 = require("@prisma/client");
+const express_1 = __importDefault(require("express"));
+const userController_1 = require("../controllers/userController");
+const postController_1 = require("../controllers/postController");
+const middlewares_1 = require("../middlewares");
+const commentController_1 = require("../controllers/commentController");
+const prisma = new client_1.PrismaClient();
+const router = express_1.default.Router();
+router.get('/users', middlewares_1.verifyToken, userController_1.user);
+router.post('/user/new', userController_1.createUser);
+router.post('/user/login', userController_1.loginUser);
+router.get('/posts', postController_1.listPost);
+router.post('/posts/new', middlewares_1.verifyToken, postController_1.createPost);
+router.get('/posts/:id', postController_1.showPost);
+router.put('/posts/:id', middlewares_1.verifyToken, postController_1.editPost);
+router.post('/posts/:id/comment/new', middlewares_1.verifyToken, commentController_1.createComment);
+exports.default = router;
